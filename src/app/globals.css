@@ -26,8 +26,30 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+@layer base {
+  @font-face {
+    font-family: "Mona Sans";
+    font-style: normal;
+    font-weight: 400;
+    src: url("/src/app/assets/fonts/MonaSans-Regular.ttf");
+  }
+
+  @font-face {
+    font-family: "Octangle";
+    font-weight: normal;
+    font-style: normal;
+    src: url("/src/app/assets/fonts/octangle.ttf");
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
   }
 }

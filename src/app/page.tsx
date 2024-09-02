@@ -1,113 +1,300 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
+import logo from "../app/assets/images/logo.png";
+import me from "../app/assets/images/me.jpg";
+import Link from "next/link";
+import integra_pratama_logo from "../app/assets/images/integra_pratama_logo.jpeg";
+import lucy_logo from "../app/assets/images/lucy_logo.png";
+import risuto_logo from "../app/assets/images/risuto_logo.png";
+import invence_logo from "../app/assets/images/invence_logo.png";
+import android_logo from "../app/assets/images/android_logo.png";
+import android_studio_logo from "../app/assets/images/android_studio_logo.png";
+import xcode_logo from "../app/assets/images/xcode_logo.png";
+import kotlin_logo from "../app/assets/images/kotlin_logo.png";
+import swift_logo from "../app/assets/images/swift_logo.png";
+import react_logo from "../app/assets/images/react_logo.png";
+import nextjs_logo from "../app/assets/images/nextjs_logo.png";
+import tailwindcss_logo from "../app/assets/images/tailwindcss_logo.svg";
+import nuxt_logo from "../app/assets/images/nuxt_logo.png";
+import vue_logo from "../app/assets/images/vue_logo.png";
+import firebase_logo from "../app/assets/images/firebase_logo.png";
+import mongodb_logo from "../app/assets/images/mongodb_logo.png";
+import flutter_logo from "../app/assets/images/flutter_logo.png";
+import typescript_logo from "../app/assets/images/typescript_logo.png";
+import javascript_logo from "../app/assets/images/javascript_logo.png";
+import java_logo from "../app/assets/images/java_logo.png";
+import python_logo from "../app/assets/images/python_logo.png";
+import linkedin_logo from "../app/assets/images/linkedin_logo.png";
+import github_logo from "../app/assets/images/github_logo.png";
+import apple_black_logo from "../app/assets/images/apple_black_logo.png";
+import { Abril_Fatface, Racing_Sans_One } from "next/font/google";
+import { Button } from "@/components/ui/button";
+import {
+  ArrowDownIcon,
+  ButtonIcon,
+  CodeIcon,
+  FileTextIcon,
+  GlobeIcon,
+  HamburgerMenuIcon,
+  MobileIcon,
+} from "@radix-ui/react-icons";
+import { Badge } from "@/components/ui/badge";
+
+const display = Racing_Sans_One({
+  subsets: ["latin"],
+  variable: "--font-display",
+  weight: "400",
+});
+
+function Projects() {
+  function Invence() {
+    return (
+      <div className="flex flex-col gap-4 border border-white p-6 mx-6 bg-black">
+        <span className="font-bold">2024</span>
+        <div className="flex flex-row gap-4">
+          <Image
+            className="w-20 h-20 rounded-lg object-contain"
+            src={invence_logo}
+            alt="Logo"
+          />
+          <div className="flex flex-col gap-2">
+            <span className="text-xl font-bold">Invence</span>
+            <span className="text-xs">
+              Inventory Management for Small Ecommerce Business
+            </span>
+          </div>
+        </div>
+        <div className="flex flex-wrap gap-4 pb-6">
+          <Badge className="flex flex-row bg-white text-black items-center justify-center gap-2">
+            <Image className="w-4 h-4" src={android_logo} alt="Logo" />
+            Android
+          </Badge>
+          <Badge className="flex flex-row bg-white text-black items-center justify-center gap-2">
+            <Image className="w-3 object-contain" src={apple_black_logo} alt="Logo" />
+            IOS
+          </Badge>
+          <Badge className="flex flex-row bg-white text-black items-center justify-center gap-2">
+            <GlobeIcon className="w-4 h-4" />
+            Web
+          </Badge>
+        </div>
+      </div>
+    );
+  }
+
+  function Risuto() {
+    return (
+      <div className="flex flex-col gap-4 border border-white p-6 mx-6 bg-black">
+        <span className="font-bold">2021</span>
+        <div className="flex flex-row gap-4">
+          <Image
+            className="w-20 h-20 rounded-lg object-contain"
+            src={risuto_logo}
+            alt="Logo"
+          />
+          <div className="flex flex-col gap-2">
+            <span className="text-xl font-bold">Risuto</span>
+            <span className="text-xs">Anime Database App</span>
+          </div>
+        </div>
+        <div className="flex flex-wrap gap-4 pb-6">
+          <Badge className="flex flex-row bg-white text-black items-center justify-center gap-2">
+            <Image className="w-4 h-4" src={android_logo} alt="Logo" />
+            Android
+          </Badge>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex flex-col py-8 gap-6 heropattern-topography-gray-700 border-b border-white">
+      <span className="text-4xl ps-6 font-black">Projects</span>
+      <Invence />
+      <Risuto />
+    </div>
+  );
+}
+
+interface TechStackProps {
+  src: StaticImageData;
+  label: string;
+}
+
+function TechStack() {
+  return (
+    <div className="flex flex-col py-8 gap-6 heropattern-endlessclouds-gray-700 border-b border-white">
+      <span className="text-4xl ps-6 font-black">Tech Stack</span>
+      <div className="flex flex-col gap-4 border border-white p-6 mx-6 bg-black">
+        <span className="text-2xl font-bold">Languages</span>
+        <div className="flex flex-wrap gap-4">
+          <Image className="w-16 h-16" src={kotlin_logo} alt="Logo" />
+          <Image className="w-16 h-16" src={swift_logo} alt="Logo" />
+          <Image className="w-16 h-16" src={typescript_logo} alt="Logo" />
+          <Image className="w-16 h-16" src={javascript_logo} alt="Logo" />
+          <Image className="w-16 h-16" src={java_logo} alt="Logo" />
+          <Image
+            className="w-16 h-16  object-contain"
+            src={python_logo}
+            alt="Logo"
+          />
+        </div>
+      </div>
+      <div className="flex flex-col gap-4 border border-white p-6 mx-6 bg-black">
+        <span className="text-2xl font-bold">Mobile Development</span>
+        <div className="flex flex-wrap gap-4">
+          <Image className="w-16 h-16" src={android_studio_logo} alt="Logo" />
+          <Image className="w-16 h-16" src={xcode_logo} alt="Logo" />
+        </div>
+      </div>
+      <div className="flex flex-col gap-4 border border-white p-6 mx-6 bg-black">
+        <span className="text-2xl font-bold">Front-End Development</span>
+        <div className="flex flex-wrap gap-4">
+          <Image className="w-16 h-16" src={react_logo} alt="Logo" />
+          <Image className="w-16 h-16" src={nextjs_logo} alt="Logo" />
+          <Image className="w-16 h-16 p-1" src={vue_logo} alt="Logo" />
+          <Image className="w-16 h-16" src={nuxt_logo} alt="Logo" />
+          <Image className="w-16 h-16" src={tailwindcss_logo} alt="Logo" />
+        </div>
+      </div>
+      <div className="flex flex-col gap-4 border border-white p-6 mx-6 bg-black">
+        <span className="text-2xl font-bold">Back-End Development</span>
+        <div className="flex flex-wrap gap-4">
+          <Image className="w-16 h-16" src={firebase_logo} alt="Logo" />
+          <Image
+            className="w-16 h-16 object-contain"
+            src={mongodb_logo}
+            alt="Logo"
+          />
+        </div>
+      </div>
+      <div className="flex flex-col gap-4 border border-white p-6 mx-6 bg-black">
+        <span className="text-2xl font-bold">Hybrid Development</span>
+        <div className="flex flex-wrap gap-4">
+          <Image
+            className="w-16 h-16 object-contain"
+            src={flutter_logo}
+            alt="Logo"
+          />
+          <Image className="w-16 h-16" src={kotlin_logo} alt="Logo" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Career() {
+  return (
+    <div className="flex flex-col py-8 gap-6 border-b border-white heropattern-linesinmotion-gray-700">
+      <span className="text-4xl ps-6 font-black">Career</span>
+      <div className="flex flex-row justify-between">
+        <span className="ps-6 text-2xl font-bold">Integra Pratama</span>
+        <Image className="w-24 h-24" src={integra_pratama_logo} alt="Logo" />
+      </div>
+      <div className="flex flex-row justify-between">
+        <span className="ps-6 text-2xl font-bold">Lucy</span>
+        <Image className="w-24 h-24 bg-white p-5" src={lucy_logo} alt="Logo" />
+      </div>
+    </div>
+  );
+}
+
+function HomeToolbar() {
+  return (
+    <div className="flex flex-row w-full items-center justify-between py-4 px-6 border-b border-white">
+      <Image src={logo} alt="Logo" width={64} height={64} priority />
+      <div className="hidden sm:flex sm:flex-row sm:gap-12 ">
+        <Link href="/projects">
+          <span>Projects</span>
+        </Link>
+        <Link href="/career">
+          <span>Career</span>
+        </Link>
+        <Link href="/services">
+          <span>Services</span>
+        </Link>
+      </div>
+      <span className="hidden sm:block">Contact me</span>
+      <HamburgerMenuIcon className="block sm:hidden w-4 h-4" />
+    </div>
+  );
+}
+
+function SkillChipGroup() {
+  return (
+    <div className="flex flex-wrap gap-4  pb-6">
+      <Badge className="flex flex-row bg-white text-black items-center justify-center gap-2">
+        <MobileIcon className="w-4 h-4" />
+        Mobile
+      </Badge>
+      <Badge className="flex flex-row bg-white text-black items-center justify-center gap-2">
+        <CodeIcon className="w-4 h-4" />
+        Front-end
+      </Badge>
+      <Badge className="flex flex-row bg-white text-black items-center justify-center gap-2">
+        <ButtonIcon className="w-4 h-4" />
+        Back-end
+      </Badge>
+    </div>
+  );
+}
+
+function Me() {
+  return (
+    <div className="flex flex-col border-b border-white h-full justify-center">
+      <div className="grid py-16">
+        <div className="col-start-1 row-start-1 flex flex-row justify-end">
+          <Image className="w-1/2" src={me} alt="Me" />
+        </div>
+        <span className="col-start-1 row-start-1 ps-6">
+          <div className="flex flex-col justify-between h-full">
+            <div className="flex flex-col gap-4">
+              <span className="text-md">Software Engineer</span>
+              <div className="flex flex-row gap-4">
+                <Link href="https://www.linkedin.com/in/alexander-william-0898a5187/">
+                  <Image
+                    className="w-6 h-6 sm:w-8 sm:h-8"
+                    src={linkedin_logo}
+                    alt="Logo"
+                  />
+                </Link>
+                <Link href="https://github.com/lexwilliam">
+                  <Image
+                    className="w-6 h-6 sm:w-8 sm:h-8"
+                    src={github_logo}
+                    alt="Logo"
+                  />
+                </Link>
+              </div>
+            </div>
+            <div className="flex flex-col text-5xl lg:text-6xl font-bold">
+              <div className="w-1/2 hidden sm:block">
+                <SkillChipGroup />
+              </div>
+              <span>Alexander</span>
+              <span>William</span>
+            </div>
+          </div>
+        </span>
+      </div>
+      <div className="flex flex-wrap gap-4 items-center justify-center pb-6 sm:hidden">
+        <SkillChipGroup />
+      </div>
+    </div>
+  );
+}
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main className="flex flex-col w-full h-full">
+      <div className="flex flex-col sm:h-screen">
+        <HomeToolbar />
+        <div className="flex-1">
+          <Me />
         </div>
       </div>
-
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+      <Projects />
+      <TechStack />
+      <Career />
     </main>
   );
 }
