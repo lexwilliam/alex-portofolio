@@ -69,7 +69,11 @@ function Projects() {
             Android
           </Badge>
           <Badge className="flex flex-row bg-white text-black items-center justify-center gap-2">
-            <Image className="w-3 object-contain" src={apple_black_logo} alt="Logo" />
+            <Image
+              className="w-3 object-contain"
+              src={apple_black_logo}
+              alt="Logo"
+            />
             IOS
           </Badge>
           <Badge className="flex flex-row bg-white text-black items-center justify-center gap-2">
@@ -186,13 +190,119 @@ function Career() {
   return (
     <div className="flex flex-col py-8 gap-6 border-b border-white heropattern-linesinmotion-gray-700">
       <span className="text-4xl ps-6 font-black">Career</span>
-      <div className="flex flex-row justify-between">
-        <span className="ps-6 text-2xl font-bold">Integra Pratama</span>
-        <Image className="w-24 h-24" src={integra_pratama_logo} alt="Logo" />
+      <div className="flex flex-col gap-4 border border-white p-6 mx-6 bg-black">
+        <span className="font-bold">Jul 2024 - Present</span>
+        <div className="flex flex-row gap-4">
+          <Image className="w-24 h-24" src={integra_pratama_logo} alt="Logo" />
+          <div className="flex flex-col gap-2">
+            <span className="text-xl font-bold">Integra Pratama</span>
+            <span className="text-sm">Android Developer</span>
+          </div>
+        </div>
+        <span>Tools</span>
+        <div className="flex flex-wrap gap-4">
+          <Badge className="flex flex-row bg-white text-black items-center justify-center gap-2">
+            <Image
+              className="w-4 h-4 object-contain"
+              src={flutter_logo}
+              alt="Logo"
+            />
+            <span>Flutter</span>
+          </Badge>
+          <Badge className="flex flex-row bg-white text-black items-center justify-center gap-2">
+            <Image className="w-4 h-4" src={android_studio_logo} alt="Logo" />
+            <span>Android Studio</span>
+          </Badge>
+          <Badge className="flex flex-row bg-white text-black items-center justify-center gap-2">
+            <Image
+              className="w-4 h-4 object-contain"
+              src={mongodb_logo}
+              alt="Logo"
+            />
+            <span>MongoDB</span>
+          </Badge>
+          <Badge className="flex flex-row bg-white text-black items-center justify-center gap-2">
+            <Image className="w-4 h-4" src={firebase_logo} alt="Logo" />
+            <span>Firebase</span>
+          </Badge>
+        </div>
+        <span>Contribution</span>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <li>
+            Designed and developed a comprehensive POS Cashier and Dashboard
+            from scratch, utilizing Flutter. Allowing restaurant managers to
+            easily manage menus, orders, and payments.
+          </li>
+          <li>
+            Developed hybrid apps using the latest technologies and frameworks,
+            such as Flutter Blocs, Go Router, and Freezed.
+          </li>
+          <li>
+            Developed and implemented a comprehensive serverless backend system that
+            leveraged the strengths of MongoDB and Firebase Cloud Function.
+          </li>
+        </div>
       </div>
-      <div className="flex flex-row justify-between">
-        <span className="ps-6 text-2xl font-bold">Lucy</span>
-        <Image className="w-24 h-24 bg-white p-5" src={lucy_logo} alt="Logo" />
+      <div className="flex flex-col gap-4 border border-white p-6 mx-6 bg-black">
+        <span className="font-bold">May 2023 - May 2024</span>
+        <div className="flex flex-row gap-4">
+          <Image
+            className="w-24 h-24 bg-white p-5"
+            src={lucy_logo}
+            alt="Logo"
+          />
+          <div className="flex flex-col gap-2">
+            <span className="text-xl font-bold">Lucy</span>
+            <span className="text-sm">Android Developer</span>
+          </div>
+        </div>
+        <span>Tools</span>
+        <div className="flex flex-wrap gap-4">
+          <Badge className="flex flex-row bg-white text-black items-center justify-center gap-2">
+            <Image className="w-4 h-4" src={android_studio_logo} alt="Logo" />
+            <span>Android Studio</span>
+          </Badge>
+          <Badge className="flex flex-row bg-white text-black items-center justify-center gap-2">
+            <Image className="w-4 h-4" src={xcode_logo} alt="Logo" />
+            <span>XCode</span>
+          </Badge>
+          <Badge className="flex flex-row bg-white text-black items-center justify-center gap-2">
+            <Image className="w-4 h-4" src={vue_logo} alt="Logo" />
+            <span>Vue</span>
+          </Badge>
+          <Badge className="flex flex-row bg-white text-black items-center justify-center gap-2">
+            <Image className="w-4 h-4" src={firebase_logo} alt="Logo" />
+            <span>Firebase</span>
+          </Badge>
+        </div>
+        <span>Contribution</span>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <li>
+            Designed and developed a comprehensive waiter and invoice Android
+            app from scratch, utilizing Kotlin and Android Studio.
+          </li>
+          <li>
+            Developed a dynamic control panel web app using Vue and Node.js,
+            allowing restaurant managers to easily manage menus, orders, and
+            payments.
+          </li>
+          <li>
+            Collaborated with senior developers and managers to design and
+            develop a main app, cashier Android app, and dashboard web app for a
+            restaurant management system.
+          </li>
+          <li>
+            Developed Android apps using the latest technologies and frameworks,
+            such as Kotlin, Android Jetpack, and Clean Architecture
+          </li>
+          <li>
+            Developed and implemented a comprehensive data management strategy
+            that leveraged the strengths of Firebase Cloud Firestore NoSQL,
+            local databases such as Room SQLite and Realm NoSQL, and local
+            server with server-side events to provide a seamless and efficient
+            user experience.
+          </li>
+        </div>
       </div>
     </div>
   );
@@ -248,7 +358,7 @@ function Me() {
         <span className="col-start-1 row-start-1 ps-6">
           <div className="flex flex-col justify-between h-full">
             <div className="flex flex-col gap-4">
-              <span className="text-md">Software Engineer</span>
+              <span className="text-md w-1/2">Mobile and Web Developer</span>
               <div className="flex flex-row gap-4">
                 <Link href="https://www.linkedin.com/in/alexander-william-0898a5187/">
                   <Image
@@ -285,7 +395,7 @@ function Me() {
 
 export default function Home() {
   return (
-    <main className="flex flex-col w-full h-full">
+    <main className="flex flex-col w-full h-full dark">
       <div className="flex flex-col sm:h-screen">
         <HomeToolbar />
         <div className="flex-1">
