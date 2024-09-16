@@ -1,3 +1,5 @@
+"use client";
+
 import Image, { StaticImageData } from "next/image";
 import logo from "../app/assets/images/logo.png";
 import me from "../app/assets/images/me.jpg";
@@ -26,18 +28,21 @@ import python_logo from "../app/assets/images/python_logo.png";
 import linkedin_logo from "../app/assets/images/linkedin_logo.png";
 import github_logo from "../app/assets/images/github_logo.png";
 import apple_black_logo from "../app/assets/images/apple_black_logo.png";
+import invence_screenshot from "../app/assets/images/invence_screenshot.png";
+import risuto_screenshot from "../app/assets/images/risuto_screenshot.png";
 import { Abril_Fatface, Racing_Sans_One } from "next/font/google";
-import { Button } from "@/components/ui/button";
 import {
   ArrowDownIcon,
   ButtonIcon,
   CodeIcon,
+  DownloadIcon,
   FileTextIcon,
   GlobeIcon,
   HamburgerMenuIcon,
   MobileIcon,
 } from "@radix-ui/react-icons";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
 const display = Racing_Sans_One({
   subsets: ["latin"],
@@ -45,67 +50,129 @@ const display = Racing_Sans_One({
   weight: "400",
 });
 
+const baseUrl = "https://alex-portofolio-tan.vercel.app/";
+const localHost = "http://localhost:3000/";
+
 function Projects() {
+  const downloadFileAtUrl = (url: string) => {
+    const fileName = url.split("/").pop();
+    if (fileName !== undefined) {
+      const a = document.createElement("a");
+      a.href = url;
+      a.setAttribute("download", fileName);
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    }
+  };
+
   function Invence() {
     return (
-      <div className="flex flex-col gap-4 border border-white p-6 mx-6 bg-black">
-        <span className="font-bold">2024</span>
-        <div className="flex flex-row gap-4">
-          <Image
-            className="w-20 h-20 rounded-lg object-contain"
-            src={invence_logo}
-            alt="Logo"
-          />
-          <div className="flex flex-col gap-2">
-            <span className="text-xl font-bold">Invence</span>
-            <span className="text-xs">
-              Inventory Management for Small Ecommerce Business
-            </span>
-          </div>
-        </div>
-        <div className="flex flex-wrap gap-4 pb-6">
-          <Badge className="flex flex-row bg-white text-black items-center justify-center gap-2">
-            <Image className="w-4 h-4" src={android_logo} alt="Logo" />
-            Android
-          </Badge>
-          <Badge className="flex flex-row bg-white text-black items-center justify-center gap-2">
+      <div className="flex flex-col gap-4 border border-white p-6 mx-6 bg-black sm:flex-row sm:justify-between">
+        <div className="flex flex-col gap-6">
+          <span className="font-bold">2024</span>
+          <div className="flex flex-row gap-4">
             <Image
-              className="w-3 object-contain"
-              src={apple_black_logo}
+              className="w-20 h-20 rounded-lg object-contain"
+              src={invence_logo}
               alt="Logo"
             />
-            IOS
-          </Badge>
-          <Badge className="flex flex-row bg-white text-black items-center justify-center gap-2">
-            <GlobeIcon className="w-4 h-4" />
-            Web
-          </Badge>
+            <div className="flex flex-col gap-2">
+              <span className="text-xl font-bold">Invence</span>
+              <span className="text-sm">
+                Inventory Management for Small Ecommerce Business
+              </span>
+            </div>
+          </div>
+          <div className="flex flex-wrap gap-4">
+            <Badge className="flex flex-row bg-white text-black items-center justify-center gap-2">
+              <Image className="w-4 h-4" src={android_logo} alt="Logo" />
+              Android
+            </Badge>
+            <Badge className="flex flex-row bg-white text-black items-center justify-center gap-2">
+              <Image
+                className="w-3 object-contain"
+                src={apple_black_logo}
+                alt="Logo"
+              />
+              IOS (Coming Soon)
+            </Badge>
+            <Badge className="flex flex-row bg-white text-black items-center justify-center gap-2">
+              <GlobeIcon className="w-4 h-4" />
+              Web
+            </Badge>
+          </div>
+          <span className="text-sm">
+            Invence is a application that allows users to create and manage
+            their own inventory. It provides a simple and intuitive interface
+            for managing products, orders, and payments. Designed to be scalable
+            and easy to use for both small and large businesses.
+          </span>
+          <Button
+            className="flex flex-row bg-white text-black items-center justify-center gap-2"
+            onClick={() => {
+              downloadFileAtUrl(`${baseUrl}Invence.apk`);
+            }}
+          >
+            <DownloadIcon />
+            Download (.apk)
+          </Button>
         </div>
+        <Image
+          className="w-full sm:w-1/3"
+          src={invence_screenshot}
+          alt="Invence Screenshot"
+        />
       </div>
     );
   }
 
   function Risuto() {
     return (
-      <div className="flex flex-col gap-4 border border-white p-6 mx-6 bg-black">
-        <span className="font-bold">2021</span>
-        <div className="flex flex-row gap-4">
-          <Image
-            className="w-20 h-20 rounded-lg object-contain"
-            src={risuto_logo}
-            alt="Logo"
-          />
-          <div className="flex flex-col gap-2">
-            <span className="text-xl font-bold">Risuto</span>
-            <span className="text-xs">Anime Database App</span>
+      <div className="flex flex-col gap-4 border border-white p-6 mx-6 bg-black sm:flex-row sm:justify-between">
+        <div className="flex flex-col gap-6">
+          <span className="font-bold">2021</span>
+          <div className="flex flex-row gap-4">
+            <Image
+              className="w-20 h-20 rounded-lg object-contain"
+              src={risuto_logo}
+              alt="Logo"
+            />
+            <div className="flex flex-col gap-2">
+              <span className="text-xl font-bold">Risuto</span>
+              <span className="text-sm">Anime Database App</span>
+            </div>
           </div>
+          <div className="flex flex-wrap gap-4">
+            <Badge className="flex flex-row bg-white text-black items-center justify-center gap-2">
+              <Image className="w-4 h-4" src={android_logo} alt="Logo" />
+              Android
+            </Badge>
+          </div>
+          <span className="text-sm">
+            Risuto is a comprehensive anime list app designed to simplify your
+            anime-watching experience. Search for your favorite titles, explore
+            detailed information, and effortlessly add them to your personal
+            watchlist. With a user-friendly interface and access to the vast
+            MyAnimeList database, Risuto makes it easy to discover and organize
+            your anime collection. Authenticate with your MyAnimeList account to
+            seamlessly sync your lists across devices.
+          </span>
+          <Button
+            className="flex flex-row bg-white text-black items-center justify-center gap-2"
+            onClick={() => {
+              downloadFileAtUrl(`${baseUrl}Risuto.apk`);
+            }}
+          >
+            <DownloadIcon />
+            Download (.apk)
+          </Button>
         </div>
-        <div className="flex flex-wrap gap-4 pb-6">
-          <Badge className="flex flex-row bg-white text-black items-center justify-center gap-2">
-            <Image className="w-4 h-4" src={android_logo} alt="Logo" />
-            Android
-          </Badge>
-        </div>
+        <Image
+          className="w-full sm:w-1/3"
+          src={risuto_screenshot}
+          alt="Risuto Screenshot"
+        />
       </div>
     );
   }
@@ -117,11 +184,6 @@ function Projects() {
       <Risuto />
     </div>
   );
-}
-
-interface TechStackProps {
-  src: StaticImageData;
-  label: string;
 }
 
 function TechStack() {
@@ -238,8 +300,8 @@ function Career() {
             such as Flutter Blocs, Go Router, and Freezed.
           </li>
           <li>
-            Developed and implemented a comprehensive serverless backend system that
-            leveraged the strengths of MongoDB and Firebase Cloud Function.
+            Developed and implemented a comprehensive serverless backend system
+            that leveraged the strengths of MongoDB and Firebase Cloud Function.
           </li>
         </div>
       </div>
