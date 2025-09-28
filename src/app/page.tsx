@@ -36,11 +36,13 @@ import { Racing_Sans_One } from "next/font/google";
 import {
   ButtonIcon,
   CodeIcon,
+  DownloadIcon,
   GlobeIcon,
   HamburgerMenuIcon,
   MobileIcon,
 } from "@radix-ui/react-icons";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
 const display = Racing_Sans_One({
   subsets: ["latin"],
@@ -161,7 +163,10 @@ function Projects() {
   }
 
   return (
-    <div className="flex flex-col py-8 gap-6 heropattern-topography-gray-700 border-b border-white">
+    <div
+      id="projects"
+      className="flex flex-col py-8 gap-6 heropattern-topography-gray-700 border-b border-white"
+    >
       <span className="text-4xl ps-6 font-black">Projects</span>
       <Invence />
       <Risuto />
@@ -171,7 +176,10 @@ function Projects() {
 
 function TechStack() {
   return (
-    <div className="flex flex-col py-8 gap-6 heropattern-endlessclouds-gray-700 border-b border-white">
+    <div
+      id="tech-stack"
+      className="flex flex-col py-8 gap-6 heropattern-endlessclouds-gray-700 border-b border-white"
+    >
       <span className="text-4xl ps-6 font-black">Tech Stack</span>
       <div className="flex flex-col gap-4 border border-white p-6 mx-6 bg-black">
         <span className="text-2xl font-bold">Languages</span>
@@ -402,7 +410,10 @@ function Career() {
   }
 
   return (
-    <div className="flex flex-col py-8 gap-6 border-b border-white heropattern-linesinmotion-gray-700">
+    <div
+      id="career"
+      className="flex flex-col py-8 gap-6 border-b border-white heropattern-linesinmotion-gray-700"
+    >
       <span className="text-4xl ps-6 font-black">Career</span>
       <Wahdah />
       <Integra />
@@ -412,22 +423,48 @@ function Career() {
 }
 
 function HomeToolbar() {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <div className="flex flex-row w-full items-center justify-between py-4 px-6 border-b border-white">
+    <div className="flex flex-row w-full items-center py-4 px-6 border-b border-white">
       <Image src={logo} alt="Logo" width={64} height={64} priority />
-      <div className="hidden sm:flex sm:flex-row sm:gap-12 ">
-        <Link href="/projects">
-          <span>Projects</span>
-        </Link>
-        <Link href="/career">
-          <span>Career</span>
-        </Link>
-        <Link href="/services">
-          <span>Services</span>
-        </Link>
+      <div className="flex-1 flex justify-center">
+        <div className="hidden sm:flex sm:flex-row sm:gap-12">
+          <button
+            onClick={() => scrollToSection("career")}
+            className="hover:text-gray-300 transition-colors cursor-pointer"
+          >
+            <span>Career</span>
+          </button>
+          <button
+            onClick={() => scrollToSection("projects")}
+            className="hover:text-gray-300 transition-colors cursor-pointer"
+          >
+            <span>Projects</span>
+          </button>
+          <button
+            onClick={() => scrollToSection("tech-stack")}
+            className="hover:text-gray-300 transition-colors cursor-pointer"
+          >
+            <span>Tech Stack</span>
+          </button>
+        </div>
       </div>
-      <span className="hidden sm:block">Contact me</span>
-      <HamburgerMenuIcon className="block sm:hidden w-4 h-4" />
+      <div className="flex items-center gap-4">
+        <Link
+          href="/CV_Alexander_William.pdf"
+          download="Alexander_William_Resume.pdf"
+          className="hidden sm:block text-white flex-row "
+        >
+          Resume (.pdf)
+        </Link>
+        {/* <HamburgerMenuIcon className="block sm:hidden w-4 h-4" /> */}
+      </div>
     </div>
   );
 }

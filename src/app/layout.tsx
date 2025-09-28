@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description:
     "Portfolio of Alexander William, a Mobile and Web Developer specializing in Android, iOS, and Frontend development.",
   icons: {
-    icon: "/logo.ico",
+    icon: "/favicon.ico",
   },
 };
 
