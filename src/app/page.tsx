@@ -27,22 +27,20 @@ import java_logo from "../app/assets/images/java_logo.png";
 import python_logo from "../app/assets/images/python_logo.png";
 import linkedin_logo from "../app/assets/images/linkedin_logo.png";
 import github_logo from "../app/assets/images/github_logo.png";
+import gmail_logo from "../app/assets/images/gmail_logo.png";
 import apple_black_logo from "../app/assets/images/apple_black_logo.png";
 import invence_screenshot from "../app/assets/images/invence_screenshot.png";
 import risuto_screenshot from "../app/assets/images/risuto_screenshot.png";
-import { Abril_Fatface, Racing_Sans_One } from "next/font/google";
+import wahdah_logo from "../app/assets/images/wahdah_logo.png";
+import { Racing_Sans_One } from "next/font/google";
 import {
-  ArrowDownIcon,
   ButtonIcon,
   CodeIcon,
-  DownloadIcon,
-  FileTextIcon,
   GlobeIcon,
   HamburgerMenuIcon,
   MobileIcon,
 } from "@radix-ui/react-icons";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 
 const display = Racing_Sans_One({
   subsets: ["latin"],
@@ -50,22 +48,7 @@ const display = Racing_Sans_One({
   weight: "400",
 });
 
-const baseUrl = "https://alex-portofolio-tan.vercel.app/";
-const localHost = "http://localhost:3000/";
-
 function Projects() {
-  const downloadFileAtUrl = (url: string) => {
-    const fileName = url.split("/").pop();
-    if (fileName !== undefined) {
-      const a = document.createElement("a");
-      a.href = url;
-      a.setAttribute("download", fileName);
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-    }
-  };
-
   function Invence() {
     return (
       <div className="flex flex-col gap-4 border border-white p-6 mx-6 bg-black sm:flex-row sm:justify-between">
@@ -108,18 +91,18 @@ function Projects() {
             for managing products, orders, and payments. Designed to be scalable
             and easy to use for both small and large businesses.
           </span>
-          <Button
-            className="flex flex-row bg-white text-black items-center justify-center gap-2"
-            onClick={() => {
-              downloadFileAtUrl(`${baseUrl}Invence.apk`);
-            }}
-          >
-            <DownloadIcon />
-            Download (.apk)
-          </Button>
+          <Link href="https://play.google.com/store/apps/details?id=com.lexwilliam.invence">
+            <Image
+              className="w-32 h-10"
+              src="/get_it_on_google_play.png"
+              alt="Get it on Google Play"
+              width={270}
+              height={80}
+            />
+          </Link>
         </div>
         <Image
-          className="w-full sm:w-1/3"
+          className="w-full sm:w-1/3 rounded-xl"
           src={invence_screenshot}
           alt="Invence Screenshot"
         />
@@ -158,18 +141,18 @@ function Projects() {
             your anime collection. Authenticate with your MyAnimeList account to
             seamlessly sync your lists across devices.
           </span>
-          <Button
-            className="flex flex-row bg-white text-black items-center justify-center gap-2"
-            onClick={() => {
-              downloadFileAtUrl(`${baseUrl}Risuto.apk`);
-            }}
-          >
-            <DownloadIcon />
-            Download (.apk)
-          </Button>
+          <Link href="https://play.google.com/store/apps/details?id=com.lexwilliam.risuto">
+            <Image
+              className="w-32 h-10"
+              src="/get_it_on_google_play.png"
+              alt="Get it on Google Play"
+              width={270}
+              height={80}
+            />
+          </Link>
         </div>
         <Image
-          className="w-full sm:w-1/3"
+          className="w-full sm:w-1/3 rounded-xl"
           src={risuto_screenshot}
           alt="Risuto Screenshot"
         />
@@ -249,11 +232,55 @@ function TechStack() {
 }
 
 function Career() {
-  return (
-    <div className="flex flex-col py-8 gap-6 border-b border-white heropattern-linesinmotion-gray-700">
-      <span className="text-4xl ps-6 font-black">Career</span>
+  function Wahdah() {
+    return (
       <div className="flex flex-col gap-4 border border-white p-6 mx-6 bg-black">
-        <span className="font-bold">Jul 2024 - Present</span>
+        <span className="font-bold">Jun 2025 - Present</span>
+        <div className="flex flex-row gap-4">
+          <Image className="w-24 h-24" src={wahdah_logo} alt="Logo" />
+          <div className="flex flex-col gap-2">
+            <span className="text-xl font-bold">Wahdah</span>
+            <span className="text-sm">Mobile Developer</span>
+          </div>
+        </div>
+        <span>Tools</span>
+        <div className="flex flex-wrap gap-4">
+          <Badge className="flex flex-row bg-white text-black items-center justify-center gap-2">
+            <Image className="w-4 h-4" src={android_studio_logo} alt="Logo" />
+            <span>Android Studio</span>
+          </Badge>
+          <Badge className="flex flex-row bg-white text-black items-center justify-center gap-2">
+            <Image className="w-4 h-4" src={xcode_logo} alt="Logo" />
+            <span>Xcode</span>
+          </Badge>
+          <Badge className="flex flex-row bg-white text-black items-center justify-center gap-2">
+            <Image
+              className="w-4 h-4 object-contain"
+              src={flutter_logo}
+              alt="Logo"
+            />
+            <span>Flutter</span>
+          </Badge>
+        </div>
+        <span>Contribution</span>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+          <li>
+            Collaborate with colleagues and senior to develop the main business
+            product: DRIVEO and WAHDAH using Android Kotlin and IOS Swift.
+          </li>
+          <li>
+            Teach and supervise Intern and Junior Mobile Developer on Workbeat
+            HRIS app Flutter project.
+          </li>
+        </div>
+      </div>
+    );
+  }
+
+  function Integra() {
+    return (
+      <div className="flex flex-col gap-4 border border-white p-6 mx-6 bg-black">
+        <span className="font-bold">Jul 2024 - Jul 2025</span>
         <div className="flex flex-row gap-4">
           <Image className="w-24 h-24" src={integra_pratama_logo} alt="Logo" />
           <div className="flex flex-col gap-2">
@@ -305,6 +332,11 @@ function Career() {
           </li>
         </div>
       </div>
+    );
+  }
+
+  function Lucy() {
+    return (
       <div className="flex flex-col gap-4 border border-white p-6 mx-6 bg-black">
         <span className="font-bold">May 2023 - May 2024</span>
         <div className="flex flex-row gap-4">
@@ -366,6 +398,15 @@ function Career() {
           </li>
         </div>
       </div>
+    );
+  }
+
+  return (
+    <div className="flex flex-col py-8 gap-6 border-b border-white heropattern-linesinmotion-gray-700">
+      <span className="text-4xl ps-6 font-black">Career</span>
+      <Wahdah />
+      <Integra />
+      <Lucy />
     </div>
   );
 }
@@ -436,6 +477,13 @@ function Me() {
                     alt="Logo"
                   />
                 </Link>
+                <Link href="https://mail.google.com/mail/u/0/?fs=1&to=alexwill216@gmail.com&tf=cm">
+                  <Image
+                    className="w-6 h-6 sm:w-8 sm:h-8"
+                    src={gmail_logo}
+                    alt="Logo"
+                  />
+                </Link>
               </div>
             </div>
             <div className="flex flex-col text-5xl lg:text-6xl font-bold">
@@ -464,9 +512,9 @@ export default function Home() {
           <Me />
         </div>
       </div>
+      <Career />
       <Projects />
       <TechStack />
-      <Career />
     </main>
   );
 }
