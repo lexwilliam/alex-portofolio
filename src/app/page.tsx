@@ -37,6 +37,7 @@ import express_logo from "../app/assets/images/express_logo.png";
 import mysql_logo from "../app/assets/images/mysql_logo.png";
 import postgresql_logo from "../app/assets/images/postgresql_logo.png";
 import convex from "../app/assets/images/convex.png";
+import playstore_logo from "../app/assets/images/playstore_logo.png";
 import { Racing_Sans_One } from "next/font/google";
 import {
   ButtonIcon,
@@ -790,6 +791,31 @@ function Me() {
       </div>
       <div className="flex flex-wrap gap-4 items-center justify-center pb-6 sm:hidden">
         <SkillChipGroup />
+      </div>
+      <div className="flex flex-col sm:flex-row gap-4 items-center justify-center pb-8 px-6">
+        <Link
+          href="/CV_Alexander_William.pdf"
+          download="Alexander_William_Resume.pdf"
+        >
+          <Button className="bg-white text-black hover:bg-gray-200 w-full sm:w-auto">
+            <DownloadIcon className="w-4 h-4 mr-2" />
+            Download Resume (.pdf)
+          </Button>
+        </Link>
+        <Link
+          href="https://play.google.com/store/apps/developer?id=EzzyApp"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Button className="bg-white text-black hover:bg-gray-200 w-full sm:w-auto">
+            <Image
+              className="w-4 h-4 mr-2"
+              src={playstore_logo}
+              alt="Play Store"
+            />
+            Check my Play Store
+          </Button>
+        </Link>
       </div>
     </div>
   );
