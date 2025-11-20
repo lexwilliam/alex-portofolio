@@ -32,6 +32,11 @@ import apple_black_logo from "../app/assets/images/apple_black_logo.png";
 import invence_screenshot from "../app/assets/images/invence_screenshot.png";
 import risuto_screenshot from "../app/assets/images/risuto_screenshot.png";
 import wahdah_logo from "../app/assets/images/wahdah_logo.png";
+import expo_logo from "../app/assets/images/expo_logo.png";
+import express_logo from "../app/assets/images/express_logo.png";
+import mysql_logo from "../app/assets/images/mysql_logo.png";
+import postgresql_logo from "../app/assets/images/postgresql_logo.png";
+import convex from "../app/assets/images/convex.png";
 import { Racing_Sans_One } from "next/font/google";
 import {
   ButtonIcon,
@@ -93,15 +98,78 @@ function Projects() {
             for managing products, orders, and payments. Designed to be scalable
             and easy to use for both small and large businesses.
           </span>
-          <Link href="https://play.google.com/store/apps/details?id=com.lexwilliam.invence">
-            <Image
-              className="w-32 h-10"
-              src="/get_it_on_google_play.png"
-              alt="Get it on Google Play"
-              width={270}
-              height={80}
-            />
-          </Link>
+          <div className="flex flex-col gap-4">
+            <Link href="https://play.google.com/store/apps/details?id=com.lexwilliam.invence">
+              <Image
+                className="w-32 h-10"
+                src="/get_it_on_google_play.png"
+                alt="Get it on Google Play"
+                width={270}
+                height={80}
+              />
+            </Link>
+            <Link
+              href="https://invence.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-white hover:text-gray-300 transition-colors"
+            >
+              <GlobeIcon className="w-5 h-5" />
+              <span className="text-sm">Visit Landing Page</span>
+            </Link>
+            <div className="flex flex-col gap-2">
+              <span className="text-sm font-semibold">
+                GitHub Repositories:
+              </span>
+              <div className="flex flex-col gap-2">
+                <Link
+                  href="https://github.com/lexwilliam/invence-android"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-white hover:text-gray-300 transition-colors text-sm"
+                >
+                  <Image className="w-4 h-4" src={github_logo} alt="GitHub" />
+                  <span>Android (Kotlin)</span>
+                </Link>
+                <Link
+                  href="https://github.com/lexwilliam/invence_landing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-white hover:text-gray-300 transition-colors text-sm"
+                >
+                  <Image className="w-4 h-4" src={github_logo} alt="GitHub" />
+                  <span>Landing Page (NextJS, React)</span>
+                </Link>
+                <Link
+                  href="https://github.com/lexwilliam/invence-ios"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-white hover:text-gray-300 transition-colors text-sm"
+                >
+                  <Image className="w-4 h-4" src={github_logo} alt="GitHub" />
+                  <span>iOS (Swift)</span>
+                </Link>
+                <Link
+                  href="https://github.com/lexwilliam/invence-functions"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-white hover:text-gray-300 transition-colors text-sm"
+                >
+                  <Image className="w-4 h-4" src={github_logo} alt="GitHub" />
+                  <span>Firebase Functions (Typescript)</span>
+                </Link>
+                <Link
+                  href="https://github.com/lexwilliam/invence-dashboard-vue"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-white hover:text-gray-300 transition-colors text-sm"
+                >
+                  <Image className="w-4 h-4" src={github_logo} alt="GitHub" />
+                  <span>Dashboard (Vue)</span>
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
         <Image
           className="w-full sm:w-1/3 rounded-xl"
@@ -143,15 +211,26 @@ function Projects() {
             your anime collection. Authenticate with your MyAnimeList account to
             seamlessly sync your lists across devices.
           </span>
-          <Link href="https://play.google.com/store/apps/details?id=com.lexwilliam.risuto">
-            <Image
-              className="w-32 h-10"
-              src="/get_it_on_google_play.png"
-              alt="Get it on Google Play"
-              width={270}
-              height={80}
-            />
-          </Link>
+          <div className="flex flex-wrap gap-4 items-center">
+            <Link href="https://play.google.com/store/apps/details?id=com.lexwilliam.risuto">
+              <Image
+                className="w-32 h-10"
+                src="/get_it_on_google_play.png"
+                alt="Get it on Google Play"
+                width={270}
+                height={80}
+              />
+            </Link>
+            <Link
+              href="https://github.com/lexwilliam/Risuto"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-white hover:text-gray-300 transition-colors"
+            >
+              <Image className="w-5 h-5" src={github_logo} alt="GitHub" />
+              <span className="text-sm">View on GitHub</span>
+            </Link>
+          </div>
         </div>
         <Image
           className="w-full sm:w-1/3 rounded-xl"
@@ -184,55 +263,231 @@ function TechStack() {
       <div className="flex flex-col gap-4 border border-white p-6 mx-6 bg-black">
         <span className="text-2xl font-bold">Languages</span>
         <div className="flex flex-wrap gap-4">
-          <Image className="w-16 h-16" src={kotlin_logo} alt="Logo" />
-          <Image className="w-16 h-16" src={swift_logo} alt="Logo" />
-          <Image className="w-16 h-16" src={typescript_logo} alt="Logo" />
-          <Image className="w-16 h-16" src={javascript_logo} alt="Logo" />
-          <Image className="w-16 h-16" src={java_logo} alt="Logo" />
-          <Image
-            className="w-16 h-16  object-contain"
-            src={python_logo}
-            alt="Logo"
-          />
+          <div className="relative group">
+            <Image
+              className="w-16 h-16 rounded-lg"
+              src={kotlin_logo}
+              alt="Kotlin"
+            />
+            <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-white text-black text-sm rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
+              Kotlin
+            </span>
+          </div>
+          <div className="relative group">
+            <Image
+              className="w-16 h-16 rounded-lg"
+              src={swift_logo}
+              alt="Swift"
+            />
+            <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-white text-black text-sm rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
+              Swift
+            </span>
+          </div>
+          <div className="relative group">
+            <Image
+              className="w-16 h-16 rounded-lg"
+              src={typescript_logo}
+              alt="TypeScript"
+            />
+            <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-white text-black text-sm rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
+              TypeScript
+            </span>
+          </div>
+          <div className="relative group">
+            <Image
+              className="w-16 h-16 rounded-lg"
+              src={javascript_logo}
+              alt="JavaScript"
+            />
+            <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-white text-black text-sm rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
+              JavaScript
+            </span>
+          </div>
+          <div className="relative group">
+            <Image
+              className="w-16 h-16 rounded-lg"
+              src={java_logo}
+              alt="Java"
+            />
+            <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-white text-black text-sm rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
+              Java
+            </span>
+          </div>
+          <div className="relative group">
+            <Image
+              className="w-16 h-16 rounded-lg object-contain"
+              src={python_logo}
+              alt="Python"
+            />
+            <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-white text-black text-sm rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
+              Python
+            </span>
+          </div>
         </div>
       </div>
       <div className="flex flex-col gap-4 border border-white p-6 mx-6 bg-black">
         <span className="text-2xl font-bold">Mobile Development</span>
         <div className="flex flex-wrap gap-4">
-          <Image className="w-16 h-16" src={android_studio_logo} alt="Logo" />
-          <Image className="w-16 h-16" src={xcode_logo} alt="Logo" />
+          <div className="relative group">
+            <Image
+              className="w-16 h-16 rounded-lg"
+              src={android_studio_logo}
+              alt="Android Studio"
+            />
+            <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-white text-black text-sm rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
+              Android Studio
+            </span>
+          </div>
+          <div className="relative group">
+            <Image
+              className="w-16 h-16 rounded-lg"
+              src={xcode_logo}
+              alt="Xcode"
+            />
+            <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-white text-black text-sm rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
+              Xcode
+            </span>
+          </div>
+          <div className="relative group">
+            <Image
+              className="w-16 h-16 rounded-lg object-contain"
+              src={flutter_logo}
+              alt="Flutter"
+            />
+            <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-white text-black text-sm rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
+              Flutter
+            </span>
+          </div>
+          <div className="relative group">
+            <Image
+              className="w-16 h-16 rounded-lg object-contain"
+              src={expo_logo}
+              alt="Expo"
+            />
+            <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-white text-black text-sm rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
+              Expo
+            </span>
+          </div>
         </div>
       </div>
       <div className="flex flex-col gap-4 border border-white p-6 mx-6 bg-black">
         <span className="text-2xl font-bold">Front-End Development</span>
         <div className="flex flex-wrap gap-4">
-          <Image className="w-16 h-16" src={react_logo} alt="Logo" />
-          <Image className="w-16 h-16" src={nextjs_logo} alt="Logo" />
-          <Image className="w-16 h-16 p-1" src={vue_logo} alt="Logo" />
-          <Image className="w-16 h-16" src={nuxt_logo} alt="Logo" />
-          <Image className="w-16 h-16" src={tailwindcss_logo} alt="Logo" />
+          <div className="relative group">
+            <Image
+              className="w-16 h-16 rounded-lg"
+              src={react_logo}
+              alt="React"
+            />
+            <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-white text-black text-sm rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
+              React
+            </span>
+          </div>
+          <div className="relative group">
+            <Image
+              className="w-16 h-16 rounded-lg"
+              src={nextjs_logo}
+              alt="Next.js"
+            />
+            <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-white text-black text-sm rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
+              Next.js
+            </span>
+          </div>
+          <div className="relative group">
+            <Image
+              className="w-16 h-16 rounded-lg p-1"
+              src={vue_logo}
+              alt="Vue"
+            />
+            <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-white text-black text-sm rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
+              Vue
+            </span>
+          </div>
+          <div className="relative group">
+            <Image
+              className="w-16 h-16 rounded-lg"
+              src={nuxt_logo}
+              alt="Nuxt"
+            />
+            <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-white text-black text-sm rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
+              Nuxt
+            </span>
+          </div>
+          <div className="relative group">
+            <Image
+              className="w-16 h-16 rounded-lg"
+              src={tailwindcss_logo}
+              alt="Tailwind CSS"
+            />
+            <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-white text-black text-sm rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
+              Tailwind CSS
+            </span>
+          </div>
         </div>
       </div>
       <div className="flex flex-col gap-4 border border-white p-6 mx-6 bg-black">
         <span className="text-2xl font-bold">Back-End Development</span>
         <div className="flex flex-wrap gap-4">
-          <Image className="w-16 h-16" src={firebase_logo} alt="Logo" />
-          <Image
-            className="w-16 h-16 object-contain"
-            src={mongodb_logo}
-            alt="Logo"
-          />
-        </div>
-      </div>
-      <div className="flex flex-col gap-4 border border-white p-6 mx-6 bg-black">
-        <span className="text-2xl font-bold">Hybrid Development</span>
-        <div className="flex flex-wrap gap-4">
-          <Image
-            className="w-16 h-16 object-contain"
-            src={flutter_logo}
-            alt="Logo"
-          />
-          <Image className="w-16 h-16" src={kotlin_logo} alt="Logo" />
+          <div className="relative group">
+            <Image
+              className="w-16 h-16 rounded-lg"
+              src={firebase_logo}
+              alt="Firebase"
+            />
+            <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-white text-black text-sm rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
+              Firebase
+            </span>
+          </div>
+          <div className="relative group">
+            <Image
+              className="w-16 h-16 rounded-lg object-contain"
+              src={mongodb_logo}
+              alt="MongoDB"
+            />
+            <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-white text-black text-sm rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
+              MongoDB
+            </span>
+          </div>
+          <div className="relative group">
+            <Image
+              className="w-16 h-16 rounded-lg object-contain"
+              src={express_logo}
+              alt="Express"
+            />
+            <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-white text-black text-sm rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
+              Express
+            </span>
+          </div>
+          <div className="relative group">
+            <Image
+              className="w-16 h-16 rounded-lg object-contain"
+              src={mysql_logo}
+              alt="MySQL"
+            />
+            <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-white text-black text-sm rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
+              MySQL
+            </span>
+          </div>
+          <div className="relative group">
+            <Image
+              className="w-16 h-16 rounded-lg object-contain"
+              src={postgresql_logo}
+              alt="PostgreSQL"
+            />
+            <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-white text-black text-sm rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
+              PostgreSQL
+            </span>
+          </div>
+          <div className="relative group">
+            <Image
+              className="w-16 h-16 rounded-lg object-contain"
+              src={convex}
+              alt="Convex"
+            />
+            <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-white text-black text-sm rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
+              Convex
+            </span>
+          </div>
         </div>
       </div>
     </div>
