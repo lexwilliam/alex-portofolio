@@ -49,6 +49,7 @@ import {
 } from "@radix-ui/react-icons";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { usePostHog } from "posthog-js/react";
 
 const display = Racing_Sans_One({
   subsets: ["latin"],
@@ -679,11 +680,24 @@ function Career() {
 }
 
 function HomeToolbar() {
+  const posthog = usePostHog();
+  
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
+  };
+
+  const handleButtonClick = (sectionId: string, buttonText: string) => {
+    if (posthog) {
+      posthog.capture("button_clicked", {
+        button_text: buttonText,
+        button_id: `nav-${sectionId}`,
+        section: sectionId,
+      });
+    }
+    scrollToSection(sectionId);
   };
 
   return (
@@ -692,19 +706,19 @@ function HomeToolbar() {
       <div className="flex-1 flex justify-center">
         <div className="hidden sm:flex sm:flex-row sm:gap-12">
           <button
-            onClick={() => scrollToSection("career")}
+            onClick={() => handleButtonClick("career", "Career")}
             className="hover:text-gray-300 transition-colors cursor-pointer"
           >
             <span>Career</span>
           </button>
           <button
-            onClick={() => scrollToSection("projects")}
+            onClick={() => handleButtonClick("projects", "Projects")}
             className="hover:text-gray-300 transition-colors cursor-pointer"
           >
             <span>Projects</span>
           </button>
           <button
-            onClick={() => scrollToSection("tech-stack")}
+            onClick={() => handleButtonClick("tech-stack", "Tech Stack")}
             className="hover:text-gray-300 transition-colors cursor-pointer"
           >
             <span>Tech Stack</span>
