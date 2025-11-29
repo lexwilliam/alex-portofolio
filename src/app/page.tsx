@@ -58,7 +58,36 @@ const display = Racing_Sans_One({
 });
 
 function Projects() {
+  const posthog = usePostHog();
+
   function Invence() {
+    const handleInvencePlayStore = () => {
+      if (posthog) {
+        posthog.capture("click", {
+          type: "project_invence_play_store",
+          element: "Get it on Google Play",
+        });
+      }
+    };
+
+    const handleInvenceLanding = () => {
+      if (posthog) {
+        posthog.capture("click", {
+          type: "project_invence_landing",
+          element: "Visit Landing Page",
+        });
+      }
+    };
+
+    const handleInvenceGitHub = (repo: string) => {
+      if (posthog) {
+        posthog.capture("click", {
+          type: `project_invence_github_${repo}`,
+          element: repo,
+        });
+      }
+    };
+
     return (
       <div className="flex flex-col gap-4 border border-white p-6 mx-6 bg-black sm:flex-row sm:justify-between">
         <div className="flex flex-col gap-6">
@@ -101,7 +130,10 @@ function Projects() {
             and easy to use for both small and large businesses.
           </span>
           <div className="flex flex-col gap-4">
-            <Link href="https://play.google.com/store/apps/details?id=com.lexwilliam.invence">
+            <Link 
+              href="https://play.google.com/store/apps/details?id=com.lexwilliam.invence"
+              onClick={handleInvencePlayStore}
+            >
               <Image
                 className="w-32 h-10"
                 src="/get_it_on_google_play.png"
@@ -115,6 +147,7 @@ function Projects() {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-white hover:text-gray-300 transition-colors"
+              onClick={handleInvenceLanding}
             >
               <GlobeIcon className="w-5 h-5" />
               <span className="text-sm">Visit Landing Page</span>
@@ -129,6 +162,7 @@ function Projects() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-white hover:text-gray-300 transition-colors text-sm"
+                  onClick={() => handleInvenceGitHub("android")}
                 >
                   <Image className="w-4 h-4" src={github_logo} alt="GitHub" />
                   <span>Android (Kotlin)</span>
@@ -138,6 +172,7 @@ function Projects() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-white hover:text-gray-300 transition-colors text-sm"
+                  onClick={() => handleInvenceGitHub("landing")}
                 >
                   <Image className="w-4 h-4" src={github_logo} alt="GitHub" />
                   <span>Landing Page (NextJS, React)</span>
@@ -147,6 +182,7 @@ function Projects() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-white hover:text-gray-300 transition-colors text-sm"
+                  onClick={() => handleInvenceGitHub("ios")}
                 >
                   <Image className="w-4 h-4" src={github_logo} alt="GitHub" />
                   <span>iOS (Swift)</span>
@@ -156,6 +192,7 @@ function Projects() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-white hover:text-gray-300 transition-colors text-sm"
+                  onClick={() => handleInvenceGitHub("functions")}
                 >
                   <Image className="w-4 h-4" src={github_logo} alt="GitHub" />
                   <span>Firebase Functions (Typescript)</span>
@@ -165,6 +202,7 @@ function Projects() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-white hover:text-gray-300 transition-colors text-sm"
+                  onClick={() => handleInvenceGitHub("dashboard")}
                 >
                   <Image className="w-4 h-4" src={github_logo} alt="GitHub" />
                   <span>Dashboard (Vue)</span>
@@ -183,6 +221,24 @@ function Projects() {
   }
 
   function Risuto() {
+    const handleRisutoPlayStore = () => {
+      if (posthog) {
+        posthog.capture("click", {
+          type: "project_risuto_play_store",
+          element: "Get it on Google Play",
+        });
+      }
+    };
+
+    const handleRisutoGitHub = () => {
+      if (posthog) {
+        posthog.capture("click", {
+          type: "project_risuto_github",
+          element: "View on GitHub",
+        });
+      }
+    };
+
     return (
       <div className="flex flex-col gap-4 border border-white p-6 mx-6 bg-black sm:flex-row sm:justify-between">
         <div className="flex flex-col gap-6">
@@ -214,7 +270,10 @@ function Projects() {
             seamlessly sync your lists across devices.
           </span>
           <div className="flex flex-wrap gap-4 items-center">
-            <Link href="https://play.google.com/store/apps/details?id=com.lexwilliam.risuto">
+            <Link 
+              href="https://play.google.com/store/apps/details?id=com.lexwilliam.risuto"
+              onClick={handleRisutoPlayStore}
+            >
               <Image
                 className="w-32 h-10"
                 src="/get_it_on_google_play.png"
@@ -228,6 +287,7 @@ function Projects() {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-white hover:text-gray-300 transition-colors"
+              onClick={handleRisutoGitHub}
             >
               <Image className="w-5 h-5" src={github_logo} alt="GitHub" />
               <span className="text-sm">View on GitHub</span>
@@ -689,15 +749,23 @@ function HomeToolbar() {
     }
   };
 
-  const handleButtonClick = (sectionId: string, buttonText: string) => {
+  const handleNavClick = (sectionId: string, buttonText: string) => {
     if (posthog) {
-      posthog.capture("button_clicked", {
-        button_text: buttonText,
-        button_id: `nav-${sectionId}`,
-        section: sectionId,
+      posthog.capture("click", {
+        type: `nav_${sectionId}`,
+        element: buttonText,
       });
     }
     scrollToSection(sectionId);
+  };
+
+  const handleResumeClick = () => {
+    if (posthog) {
+      posthog.capture("click", {
+        type: "resume_download_toolbar",
+        element: "Resume (.pdf)",
+      });
+    }
   };
 
   return (
@@ -706,19 +774,19 @@ function HomeToolbar() {
       <div className="flex-1 flex justify-center">
         <div className="hidden sm:flex sm:flex-row sm:gap-12">
           <button
-            onClick={() => handleButtonClick("career", "Career")}
+            onClick={() => handleNavClick("career", "Career")}
             className="hover:text-gray-300 transition-colors cursor-pointer"
           >
             <span>Career</span>
           </button>
           <button
-            onClick={() => handleButtonClick("projects", "Projects")}
+            onClick={() => handleNavClick("projects", "Projects")}
             className="hover:text-gray-300 transition-colors cursor-pointer"
           >
             <span>Projects</span>
           </button>
           <button
-            onClick={() => handleButtonClick("tech-stack", "Tech Stack")}
+            onClick={() => handleNavClick("tech-stack", "Tech Stack")}
             className="hover:text-gray-300 transition-colors cursor-pointer"
           >
             <span>Tech Stack</span>
@@ -730,6 +798,7 @@ function HomeToolbar() {
           href="/CV_Alexander_William.pdf"
           download="Alexander_William_Resume.pdf"
           className="hidden sm:block text-white flex-row "
+          onClick={handleResumeClick}
         >
           Resume (.pdf)
         </Link>
@@ -759,6 +828,35 @@ function SkillChipGroup() {
 }
 
 function Me() {
+  const posthog = usePostHog();
+
+  const handleSocialClick = (platform: string) => {
+    if (posthog) {
+      posthog.capture("click", {
+        type: `social_${platform}`,
+        element: platform,
+      });
+    }
+  };
+
+  const handleResumeDownload = () => {
+    if (posthog) {
+      posthog.capture("click", {
+        type: "resume_download_button",
+        element: "Download Resume (.pdf)",
+      });
+    }
+  };
+
+  const handlePlayStore = () => {
+    if (posthog) {
+      posthog.capture("click", {
+        type: "play_store_button",
+        element: "Check my Play Store",
+      });
+    }
+  };
+
   return (
     <div className="flex flex-col border-b border-white h-full justify-center">
       <div className="grid py-16">
@@ -770,21 +868,30 @@ function Me() {
             <div className="flex flex-col gap-4">
               <span className="text-md w-1/2">Mobile and Web Developer</span>
               <div className="flex flex-row gap-4">
-                <Link href="https://www.linkedin.com/in/alexander-william-0898a5187/">
+                <Link 
+                  href="https://www.linkedin.com/in/alexander-william-0898a5187/"
+                  onClick={() => handleSocialClick("linkedin")}
+                >
                   <Image
                     className="w-6 h-6 sm:w-8 sm:h-8"
                     src={linkedin_logo}
                     alt="Logo"
                   />
                 </Link>
-                <Link href="https://github.com/lexwilliam">
+                <Link 
+                  href="https://github.com/lexwilliam"
+                  onClick={() => handleSocialClick("github")}
+                >
                   <Image
                     className="w-6 h-6 sm:w-8 sm:h-8"
                     src={github_logo}
                     alt="Logo"
                   />
                 </Link>
-                <Link href="https://mail.google.com/mail/u/0/?fs=1&to=alexwill216@gmail.com&tf=cm">
+                <Link 
+                  href="https://mail.google.com/mail/u/0/?fs=1&to=alexwill216@gmail.com&tf=cm"
+                  onClick={() => handleSocialClick("gmail")}
+                >
                   <Image
                     className="w-6 h-6 sm:w-8 sm:h-8"
                     src={gmail_logo}
@@ -810,6 +917,7 @@ function Me() {
         <Link
           href="/CV_Alexander_William.pdf"
           download="Alexander_William_Resume.pdf"
+          onClick={handleResumeDownload}
         >
           <Button className="bg-white text-black hover:bg-gray-200 w-full sm:w-auto">
             <DownloadIcon className="w-4 h-4 mr-2" />
@@ -820,6 +928,7 @@ function Me() {
           href="https://play.google.com/store/apps/developer?id=EzzyApp"
           target="_blank"
           rel="noopener noreferrer"
+          onClick={handlePlayStore}
         >
           <Button className="bg-white text-black hover:bg-gray-200 w-full sm:w-auto">
             <Image

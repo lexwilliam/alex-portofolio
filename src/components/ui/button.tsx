@@ -1,9 +1,6 @@
-"use client";
-
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
-import { usePostHog } from "posthog-js/react"
 
 import { cn } from "@/lib/utils"
 
@@ -43,35 +40,12 @@ export interface ButtonProps
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, onClick, ...props }, ref) => {
-    const posthog = usePostHog()
+  ({ className, variant, size, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"
-    
-    const handleClick = (e: React.MouseEvent<HTMLElement>) => {
-      // Track button click event
-      if (posthog) {
-        const target = e.currentTarget as HTMLElement
-        const buttonText = target.textContent?.trim() || "Button"
-        const buttonId = target.id || props.id || "unknown"
-        posthog.capture("button_clicked", {
-          button_text: buttonText,
-          button_id: buttonId,
-          variant: variant || "default",
-          size: size || "default",
-        })
-      }
-      
-      // Call original onClick handler if provided
-      if (onClick) {
-        onClick(e as React.MouseEvent<HTMLButtonElement>)
-      }
-    }
-    
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
-        onClick={handleClick}
         {...props}
       />
     )
