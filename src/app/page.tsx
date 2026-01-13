@@ -50,6 +50,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { usePostHog } from "posthog-js/react";
+import { NewPortfolioDialog } from "@/components/NewPortfolioDialog";
 
 const display = Racing_Sans_One({
   subsets: ["latin"],
@@ -932,7 +933,7 @@ function Me() {
         >
           <Button className="bg-white text-black hover:bg-gray-200 w-full sm:w-auto">
             <Image
-              className="w-4 h-4 mr-2"
+              className="w-4 h-4 mr-2" 
               src={playstore_logo}
               alt="Play Store"
             />
@@ -947,6 +948,7 @@ function Me() {
 export default function Home() {
   return (
     <main className="flex flex-col w-full h-full dark">
+      <NewPortfolioDialog />
       <div className="flex flex-col sm:h-screen">
         <HomeToolbar />
         <div className="flex-1">
